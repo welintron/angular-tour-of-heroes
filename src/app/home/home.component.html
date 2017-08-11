@@ -1,0 +1,10 @@
+<nav *ngIf="auth.isAuthenticated() && auth.userHasScopes(['write:messages'])">
+    <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+    <a routerLink="/profile" routerLinkActive="active">Profile</a>
+</nav>
+
+
+<h4 *ngIf="!auth.isAuthenticated()">
+  You are not logged in! Please <a (click)="auth.login()">Log In</a> to continue.
+</h4>
